@@ -4,24 +4,26 @@ import os
 def calcular(a,b,c):
     delta = (b**2)-(4*a*c)
     if delta < 0:
-        return "000", "000"
+        return "Não há raiz real"
     elif delta == 0:
         raizdelta = math.sqrt(delta)
         x1 = (-b + raizdelta)/2*a
-        return x1
+        x2 = (-b - raizdelta)/2*a
+        return (x1,x2)
     else:
         raizdelta = math.sqrt(delta)
         x1 = (-b + raizdelta)/2*a
         x2 = (-b - raizdelta)/2*a
-        return x1, x2
+        return (x1, x2)
 # RECEBER VALORES DE A, B, C (aX2+bX+c)
 listaA=[]
 listaB=[]
 listaC=[]
 quantidade = int(input("Digite a quantidade de equações: "))
+os.system("cls")
 cont = 1
 while cont <= quantidade:
-    print(f"Digite os valores da equação {cont}")
+    print(f"\nDigite os valores da equação {cont}")
     a = float(input("Digite o valor de a: "))
     b = float(input("Digite o valor de b: "))
     c = float(input("Digite o valor de c: "))
@@ -33,9 +35,9 @@ os.system("cls")
 # MOSTRANDO RAÍZES
 cont2 = 0
 for e in listaA:
-    x1,x2 = calcular(e,listaB[cont2],listaC[cont2])
-    if x1 and x2 == "000":
+    raizes = calcular(e,listaB[cont2],listaC[cont2])
+    if raizes == "Não há raiz real":
         print(f"Equação {cont2+1}:\nNão há raízes reais.\n")
     else:
-        print(f"Equação {cont2+1}:\nx1 = {x1}\nx2 = {x2}\n")
+        print(f"Equação {cont2+1}:\nx1 = {raizes[0]}\nx2 = {raizes[1]}\n")
     cont2+=1
