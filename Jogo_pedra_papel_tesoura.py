@@ -21,7 +21,7 @@ def jogador():
     while (player != "1") and (player != "2") and (player != "3"):
       limpar()
       time.sleep(1)
-      print("Opção inválida. Digite novamente após 5 segundos.")
+      print("Opção inválida. Digite novamente após 5 segundos.\n")
       time.sleep(5)
       print("Escolha sua jogada.")
       print("pedra[1]\npapel[2]\ntesoura[3]\n")
@@ -55,7 +55,7 @@ def continuar():
       time.sleep(1)
       print("Opção inválida. Digite novamente após 5 segundos.\n")
       time.sleep(5)
-      continuos = input("Deseja continuar jogando ?(s/n)")
+      continuos = input("Deseja continuar jogando [s/n] ? ").lower()
       if continuos == "s":
         limpar()
         reiniciarmaior()
